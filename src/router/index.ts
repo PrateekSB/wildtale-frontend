@@ -1,8 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Landing from '../views/Landing.vue';
 import Dashboard from '../views/Dashboard.vue';
-import Login from '../views/Login.vue';
+import Landing from '../views/Landing.vue';
 import PostStory from '../views/PostStory.vue';
 
 Vue.use(VueRouter);
@@ -10,8 +9,8 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: '/',
-    name: 'login',
-    component: Login,
+    name: 'landing',
+    component: Landing,
   },
   {
     path: '/dashboard',
