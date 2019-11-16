@@ -15,7 +15,6 @@
           category="Step 1"
           icon="vue"
           color="green"
-          date=""
         />
 
         <vue-timeline-update
@@ -24,7 +23,6 @@
           category="Step 2"
           icon="js"
           color="purple"
-          date=""
         />
 
         <vue-timeline-update
@@ -34,7 +32,6 @@
           category="Step 3"
           icon="css"
           color="orange"
-          date=""
           is-last
         />
       </section>
@@ -47,12 +44,11 @@
 </template>
 
 <script lang="ts">
-import {Component, Prop, Vue} from 'vue-property-decorator';
+import { Component, Vue } from 'vue-property-decorator';
 import Navbar from '@/components/Navbar.vue';
 
 @Component({ components: { Navbar } })
-export default class PostStory extends Vue {
-}
+export default class PostStory extends Vue { }
 </script>
 
 <style lang="scss" scoped>
@@ -79,7 +75,7 @@ export default class PostStory extends Vue {
       /* DEMO-SPECIFIC STYLES */
       .typewriter h1 {
         color: rgba(30, 7, 66, 0.65);
-        font-family: monospace;
+        font-family: Lato, sans-serif;
         overflow: hidden; /* Ensures the content is not revealed until the animation */
         border-right: .15em solid black; /* The typwriter cursor */
         white-space: nowrap; /* Keeps the content on a single line */

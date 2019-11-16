@@ -49,7 +49,7 @@
         </router-link>
       </div>
       <div class="box">
-        <router-link to="/" class="btn btn-white btn-animation-1">
+        <router-link to="/read-story" class="btn btn-white btn-animation-1">
           <font-awesome-icon :icon="['fas', 'glasses']" class="icon"/>
           Read Stories
         </router-link>
@@ -357,7 +357,7 @@ export default class Landing extends Vue {
     }
 
     blockquote::before{
-      font-family:Arial;
+      font-family:Lato, sans-serif;
       content: "\201C";
       color:rgba(30, 7, 66, 0.65);
       font-size:4em;

@@ -4,6 +4,7 @@ import Dashboard from '@/views/Dashboard.vue';
 import Landing from '@/views/Landing.vue';
 import PostStory from '@/views/PostStory.vue';
 import CreateStory from '@/views/CreateStory.vue';
+import ReadStory from '@/views/ReadStory.vue';
 
 Vue.use(VueRouter);
 
@@ -27,6 +28,11 @@ const routes = [
     path: '/create-story',
     name: 'create-story',
     component: CreateStory,
+  },
+  {
+    path: '/read-story',
+    name: 'read-story',
+    component: ReadStory,
   },
 ];
 
