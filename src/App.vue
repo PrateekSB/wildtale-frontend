@@ -7,7 +7,6 @@
 <style lang="scss">
 @import './../node_modules/bootstrap/scss/bootstrap.scss';
 @import './../node_modules/bootstrap-css-only/css/bootstrap.min.css';
-@import './../node_modules/mdbootstrap/css/mdb.css';
 @import './../node_modules/mdbvue/lib/css/mdb.min.css';
 @import './../node_modules/vue-multiselect/dist/vue-multiselect.min.css';
 @import './assets/scss/main';

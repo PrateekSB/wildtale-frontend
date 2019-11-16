@@ -1,45 +1,37 @@
 <template>
   <article class="post-story">
-    <transition name="slide-fade">
-      {{ currentSection }}
-      <section class="header" v-if="currentSection === 0">
-        <p>Welcome!</p>
-        <p>Post a story</p>
-        <p>(Write some content here to indicate how to post a story)</p>
+    <navbar/>
+    <article class="header" v-if="currentSection === 0">
+      <section class="title">
+        Post a story
+      </section>
+      <article class="text">
+        <span class="number-circle">1</span>
+        Each story can consist a maximum of 3 chapters.
+      </article>
+      <section class="text">
+        <span class="number-circle">2</span>
+        You can upload images and video for each chapter.
+      </section>
+      <section class="text">
+        <span class="number-circle">3</span>
+        After the final chapter, click on submit along with
+        your author name to submit your story!
+      </section>
+      <section class="create">
         <button class="btn btn-primary" @click="showSection(1)">
-          Post now
+          Create story now ->
         </button>
       </section>
-    </transition>
-    <transition name="slide-fade">
-      <section v-if="currentSection === 1" class="section">
-        <textarea placeholder="section 1" v-model="section1"></textarea>
-        <button class="btn btn-primary">
-          Upload image
-        </button>
-        <button class="btn btn-primary">
-          Upload video
-        </button>
-        <button class="btn btn-primary" @click="showSection(2)">
-          Section 1
-        </button>
-      </section>
-    </transition>
-    <transition name="slide-fade">
-      <section v-if="currentSection === 2" class="section">
-        <textarea placeholder="section 2" v-model="section2"></textarea>
-        <button class="btn btn-primary" @click="showSection(3)">
-          Section 2
-        </button>
-      </section>
-    </transition>
+    </article>
   </article>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import Navbar from '@/components/Navbar.vue';
 
-@Component
+@Component({ components: { Navbar } })
 export default class PostStory extends Vue {
 	currentSection: number = 0;
 	section1 : string = '';
@@ -55,27 +47,34 @@ export default class PostStory extends Vue {
 .post-story {
   display: flex;
   flex-direction: column;
-  margin: 0.5rem;
   .header {
     margin: auto;
-    text-align: center;
+    .title {
+      text-align: center;
+      font-weight: bold;
+      font-style: italic;
+      height: 5vh;
+    }
+    .text {
+      display: flex;
+      flex-direction: row;
+      height: 10vh;
+      .number-circle {
+        border-radius: 50px;
+        width: 40px;
+        height: 40px;
+        padding: 0.5rem;
+        background-image: linear-gradient($stack-wildlife-green-light, $stack-wildlife-green);
+        color: white;
+        text-align: center;
+        display: inline-block;
+      }
+    }
+    .create {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+    }
   }
-  .section {
-    display: flex;
-    flex-direction: column;
-  }
-}
-/* Enter and leave animations can use different */
-/* durations and timing functions.              */
-.slide-fade-enter-active {
-  // transition: all .3s ease;
-}
-.slide-fade-leave-active {
-  // transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
-}
-.slide-fade-enter, .slide-fade-leave-to
-  /* .slide-fade-leave-active below version 2.1.8 */ {
-  /*transform: translateX(10px);
-  opacity: 0;*/
 }
 </style>

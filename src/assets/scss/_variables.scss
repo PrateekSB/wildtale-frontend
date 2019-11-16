@@ -8,6 +8,7 @@ $global-grey           : #828282;
 
 // themes
 $stack-wildlife-green  : #2bbbad;
+$stack-wildlife-green-light  : lighten($stack-wildlife-green, 30%);
 $stack-wildlife-border: 1px solid rgba(0, 0, 0, 0.12);
 $stack-wildlife-shadow-box: 0px 2px 4px rgba(0, 0, 0, 0.2), 0px 1px 10px rgba(0, 0, 0, 0.12), 0px 4px 5px rgba(0, 0, 0, 0.14);
 
