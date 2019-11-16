@@ -1,9 +1,5 @@
 <template>
   <div id="app">
-    <section class="custom-navbar">
-      <img src="./assets/logo.gif" class="logo">
-      <span class="text">Wild Tales</span>
-    </section>
     <router-view/>
   </div>
 </template>
@@ -25,26 +21,4 @@
   margin-top: -0.5rem;
 }
 
-.custom-navbar {
-  height: 7vh;
-  @include desktop {
-    height: 6vh;
-  }
-  padding: 0.5rem;
-  display: flex;
-  align-content: center;
-  justify-content: center;
-  border-bottom: $stack-wildlife-border;
-  box-shadow: $stack-wildlife-shadow-box;
-  .icon {
-    color: $stack-wildlife-green;
-    font-size: 2rem;
-  }
-  .text {
-    color: $stack-wildlife-green;
-    font-size: x-large;
-    margin: 0 1rem;
-    font-weight: normal;
-  }
-}
 </style>

@@ -11,10 +11,14 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import SequentialEntrance from 'vue-sequential-entrance';
+import 'vue-sequential-entrance/vue-sequential-entrance.css';
 
 Vue.config.productionTip = false;
 
 Vue.prototype.$http = axios;
+
+Vue.use(SequentialEntrance);
 
 library.add(fas);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
