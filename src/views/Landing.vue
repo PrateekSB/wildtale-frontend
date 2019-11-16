@@ -43,8 +43,10 @@
     </section>
     <section class="button_container">
       <div class="box">
-        <a href="#" class="btn btn-white btn-animation-1">Add Story</a>
-        <a href="#" class="btn btn-white btn-animation-1">View Story</a>
+        <router-link to="/post-story" class="btn btn-white btn-animation-1">Add Story</router-link>
+      </div>
+      <div class="box">
+        <router-link to="/" class="btn btn-white btn-animation-1">Read Stories</router-link>
       </div>
     </section>
   </article>
@@ -276,16 +278,10 @@ export default class Login extends Vue {
 
   .button_container {
     position: absolute;
-    bottom: 7rem;
-    left: 12rem;
-    text-align:center;
-    box-sizing:border-box;
-    .box{
-      position:absolute;
-      top:50%;
-      left:50%;
-      transform : translate(-50% ,-50%);
-    }
+    display: flex;
+    bottom: 3rem;
+    justify-content: center;
+    width: 100%;
 
     .btn:link,
     .btn:visited{

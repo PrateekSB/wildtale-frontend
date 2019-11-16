@@ -26,8 +26,6 @@ import Navbar from '@/components/Navbar.vue';
 @Component({ components: { Navbar } })
 export default class CreateStory extends Vue {
 currentChapter = 1;
-section1 = '';
-section2 = '';
 
 incrementChapter() {
   this.currentChapter += 1;
