@@ -1,5 +1,11 @@
 <template>
   <article class="landing">
+    <section class="description">
+      <blockquote>
+        The wildlife and its habitat cannot speak.
+        <span>So we must and we will!</span>
+      </blockquote>
+    </section>
     <section class="container">
       <article class="wwdc">
         <span class="spin">
@@ -36,9 +42,10 @@
       </article>
     </section>
     <section class="button_container">
-      <a class="share_btn shtw">
-        <i class="fa fa-twitter"></i>
-      </a>
+      <div class="box">
+        <a href="#" class="btn btn-white btn-animation-1">Add Story</a>
+        <a href="#" class="btn btn-white btn-animation-1">View Story</a>
+      </div>
     </section>
   </article>
 </template>
@@ -120,13 +127,6 @@ export default class Login extends Vue {
       100% {
         transform: scale(1) rotateZ(360deg);
       }
-    }
-
-    body {
-      background: #fff;
-      font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      color: #fff;
-      font-size: 24px;
     }
 
     .circle {
@@ -276,34 +276,110 @@ export default class Login extends Vue {
 
   .button_container {
     position: absolute;
-    bottom: 4rem;
-    right: 1rem;
-    @include desktop {
-      right: 20rem;
+    bottom: 7rem;
+    left: 12rem;
+    text-align:center;
+    box-sizing:border-box;
+    .box{
+      position:absolute;
+      top:50%;
+      left:50%;
+      transform : translate(-50% ,-50%);
     }
-    .share_btn{
-      display: inline-block;
+
+    .btn:link,
+    .btn:visited{
       text-decoration: none;
-      width: 50px;
-      height: 50px;
-      line-height: 50px;
-      font-size: 23px;
-      border-radius: 50%;
-      text-align: center;
-      vertical-align: middle;
-      overflow: hidden;
+      text-transform:uppercase;
+      position:relative;
+      top:0;
+      left:0;
+      padding:20px 40px;
+      border-radius:100px;
+      display:inline-block;
+      transition: all .5s;
+    }
+
+    .btn-white{
+      background:#fff;
+      color:#000;
+    }
+
+    .btn:hover{
+      box-shadow:0px 10px 10px rgba(0,0,0,0.2);
+      transform : translateY(-3px);
+    }
+
+    .btn:active{
+      box-shadow:0px 5px 10px rgba(0,0,0,0.2);
+      transform:translateY(-1px);
+    }
+
+    .btn-bottom-animation-1{
+      animation:comeFromBottom 1s ease-out .8s;
+    }
+
+    .btn::after{
+      content:"";
+      text-decoration: none;
+      text-transform:uppercase;
+      position:absolute;
+      width:100%;
+      height:100%;
+      top:0;
+      left:0;
+      border-radius:100px;
+      display:inline-block;
+      z-index:-1;
+      transition: all .5s;
+    }
+
+    .btn-white::after {
+      background: #fff;
+    }
+
+    .btn-animation-1:hover::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+
+  .description {
+    position: absolute;
+    width: 100%;
+    margin-top: 100px;
+    @import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic);
+    blockquote{
+      font-size: 1.4em;
+      font-family:Open Sans;
+      font-style:italic;
+      color: rgba(30, 7, 66, 0.65);
+      padding:1.2em 30px 1.2em 75px;
+      border-left:8px solid #78C0A8 ;
+      line-height:1.6;
+      position: relative;
+    }
+
+    blockquote::before{
+      font-family:Arial;
+      content: "\201C";
+      color:rgba(30, 7, 66, 0.65);
+      font-size:4em;
+      position: absolute;
+      left: 10px;
+      top:-10px;
+    }
+
+    blockquote::after{
+      content: '';
+    }
+
+    blockquote span{
+      display:block;
+      color:#333333;
+      font-style: normal;
       font-weight: bold;
-      text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
-      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);
-      transition: .3s;
-    }
-    .share_btn .fa{
-      line-height: 50px;
-    }
-    .shtw {
-      color: #22b8ff;
-      background-image: -webkit-linear-gradient(#aeecff 0%, #57c8ff 100%);
-      background-image: linear-gradient(#aeecff 0%, #57c8ff 100%);
+      margin-top:1em;
     }
   }
 }
