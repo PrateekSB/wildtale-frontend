@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login.vue renders login component 1`] = `
+<article
+  class="dashboard"
+>
+  <section
+    class="filter"
+  >
+    <filters-stub
+      class="filters-list"
+    />
+  </section>
+   
+  <section
+    class="data-table"
+  >
+    <datatable-stub
+      class="datatable-list"
+    />
+  </section>
+</article>
+`;

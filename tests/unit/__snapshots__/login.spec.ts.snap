@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login.vue renders login component 1`] = `
+<section
+  class="container h-100"
+>
+  <div
+    class="row h-100 justify-content-center align-items-center"
+  >
+    <div
+      class="col wrapper-box"
+    >
+      <img
+        alt="Minddoclytics"
+        class="mx-auto d-block"
+        src="../assets/logo-minddoc.svg"
+        title="Minddoclytics"
+      />
+       
+      <p
+        class="wrapper-box__title text-center"
+      >
+        Sign in
+      </p>
+       
+      <div>
+        <form
+          class="form form-newaccount"
+          id="loginForm"
+        >
+          <div
+            class="form-group"
+          >
+            <label
+              for="inputUser"
+            >
+              E-mail
+            </label>
+             
+            <input
+              class="form-control"
+              id="inputUser"
+              name="username"
+              placeholder="Username"
+              type="text"
+            />
+          </div>
+           
+          <div
+            class="form-group"
+          >
+            <label
+              for="inputPassword"
+            >
+              Password
+            </label>
+             
+            <input
+              class="form-control"
+              id="inputPassword"
+              name="password"
+              placeholder="Password"
+              type="password"
+            />
+          </div>
+           
+          <input
+            class="btn minddoc-btn"
+            id="submitLogin"
+            type="button"
+            value="Login"
+          />
+           
+          <span
+            class="error-block error-message"
+            name="fade"
+          >
+            
+          </span>
+           
+          <hr />
+           
+          <router-link-stub
+            class="text-link d-block text-right"
+            event="click"
+            tag="a"
+            to="/home"
+          >
+            No account yet?
+          
+          </router-link-stub>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+`;
