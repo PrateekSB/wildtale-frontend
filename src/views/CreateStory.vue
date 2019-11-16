@@ -19,12 +19,15 @@
           <span class="input-group-text" id="basic-addon1">
             <font-awesome-icon :icon="['fas', 'image']"/>
           </span>
+          <input type="file" class="form-control"
+            accept="image/png, image/jpeg, image/jpg" @change="updateImagePath">
+          <span v-if="imageLoading">Uploading image...</span>
         </div>
-        <input type="file" class="form-control"
-          accept="image/png, image/jpeg, image/jpg" @change="updateImagePath">
-        <button class="btn btn-primary" @click="uploadImage()">
-          Submit Story
-        </button>
+        <div>
+          <button class="btn btn-primary" @click="uploadImage()">
+            Submit Story
+          </button>
+        </div>
       </div>
     </article>
     <article v-if="currentChapter < 3" class="next-chapter">
@@ -50,30 +53,19 @@ import { getFileLink } from '@/api/tales';
 @Component({ components: { Navbar, mdbContainer, mdbRow, mdbCol, mdbCard, mdbCardImage, mdbCardBody, mdbCardTitle, mdbCardText } })
 export default class CreateStory extends Vue {
   currentChapter = 1;
-  image;
+  imageLoading = false;
 
   incrementChapter() {
     this.currentChapter += 1;
   }
 
 	async updateImagePath(e) {
-		let files = e.target.files || e.dataTransfer.files;
-		if (!files.length)
-			return;
-    const path = await getFileLink(files);
-    console.log(path);
-		// this.createImage(files);
+		let file = e.target.files || e.dataTransfer.files;
+		if (!file.length) return;
+		this.imageLoading = true;
+    await getFileLink(file);
+		this.imageLoading = false;
   }
-
-	/*createImage(file) {
-		let image = new Image();
-		let reader = new FileReader();
-
-		/!*reader.onload = (e) => {
-			this.image = e.target!.result;
-		};*!/
-		reader.readAsDataURL(file);
-	}*/
 }
 </script>
 

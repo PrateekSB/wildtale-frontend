@@ -5,11 +5,11 @@ export async function getTales() {
   return (await apiCall.get(url)).data;
 }
 
-export async function getFileLink(files) {
+export async function getFileLink(file) {
   let url = '/tales/files/upload';
   const config = { headers: { 'Content-Type': 'multipart/form-data' } };
-  console.log(files);
-  const response = await apiCall.post(url, { file: files }, config);
-  console.log(response);
+  const formData = new FormData();
+  formData.set('file', file[0]);
+  const response = await apiCall.post(url, formData, config);
   return response.data;
 }
