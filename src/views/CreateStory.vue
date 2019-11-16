@@ -1,18 +1,27 @@
 <template>
-  <article>
+  <article class="create-story">
     <navbar/>
-    <section>
-      <p>Chapter {{ currentChapter }}</p>
-      <textarea placeholder="Write chapter"></textarea>
-      <p>Upload image</p>
-      <p>Upload video</p>
-    </section>
-    <section v-if="currentChapter <3 ">
-      <button class="btn btn-primary" @click="incrementChapter()">
-        Go to next chapter
-      </button>
-      <p>Chapter {{ currentChapter + 1 }}</p>
-    </section>
+    <article class="current-chapter">
+      <div class="input-group p-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Chapter {{ currentChapter }}</span>
+        </div>
+        <textarea class="form-control" aria-label="With textarea" rows="10"></textarea>
+      </div>
+      <div class="input-group p-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">
+            <font-awesome-icon :icon="['fas', 'image']"/>
+          </span>
+        </div>
+        <input type="file" class="form-control" accept="image/png, image/jpeg, image/jpg">
+      </div>
+    </article>
+    <article v-if="currentChapter < 3" class="next-chapter">
+      <section @click="incrementChapter()">
+        Proceed to chapter {{ currentChapter + 1 }}
+      </section>
+    </article>
     <section v-else>
       <button class="btn btn-primary">
         Submit Story
@@ -37,5 +46,34 @@ incrementChapter() {
 </script>
 
 <style lang="scss" scoped>
-
+.create-story {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  .current-chapter {
+    margin: 1rem 0.2rem 0.2rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .next-chapter {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    > section {
+      width: 80%;
+      border-bottom: 0;
+      padding: 0.5rem;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      color: white;
+      text-align: center;
+      font-weight: bold;
+      background-image: linear-gradient($stack-wildlife-green-light, $stack-wildlife-green);
+    }
+  }
+}
 </style>
