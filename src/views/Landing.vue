@@ -4,7 +4,6 @@
       <blockquote>
         The wildlife and its habitat cannot speak.
         <span>So we must and we will!</span>
-        check = {{ check }}
       </blockquote>
     </section>
     <section class="container">
@@ -44,10 +43,16 @@
     </section>
     <section class="button_container">
       <div class="box">
-        <router-link to="/post-story" class="btn btn-white btn-animation-1">Add Story</router-link>
+        <router-link to="/post-story" class="btn btn-white btn-animation-1">
+          <font-awesome-icon :icon="['fas', 'plus']" class="icon"/>
+          Add Story
+        </router-link>
       </div>
       <div class="box">
-        <router-link to="/" class="btn btn-white btn-animation-1">Read Stories</router-link>
+        <router-link to="/" class="btn btn-white btn-animation-1">
+          <font-awesome-icon :icon="['fas', 'glasses']" class="icon"/>
+          Read Stories
+        </router-link>
       </div>
     </section>
   </article>
@@ -55,19 +60,9 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { getTales } from '@/api/api';
 
 @Component
 export default class Landing extends Vue {
-  check: any = '';
-
-  async mounted() {
-		this.check = await getTales();
-  }
-
-  login() {
-    this.$router.push('/dashboard');
-  }
 }
 </script>
 
@@ -344,7 +339,7 @@ export default class Landing extends Vue {
   .description {
     position: absolute;
     width: 100%;
-    margin-top: 100px;
+    top: 0;
     @include desktop {
       display: flex;
       justify-content:center;
@@ -352,7 +347,7 @@ export default class Landing extends Vue {
     @import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic);
     blockquote{
       font-size: 1.4em;
-      font-family:Open Sans;
+      font-family: Open Sans;
       font-style:italic;
       color: rgba(30, 7, 66, 0.65);
       padding:1.2em 30px 1.2em 75px;
@@ -382,6 +377,11 @@ export default class Landing extends Vue {
       font-weight: bold;
       margin-top:1em;
     }
+  }
+  .icon {
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+    color: $stack-wildlife-green;
   }
 }
 
