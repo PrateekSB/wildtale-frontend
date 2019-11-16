@@ -35,14 +35,16 @@
           is-last
         />
       </section>
-    <section>
-      <router-link to="/create-story" class="btn btn-primary">Create a story -> </router-link>
+    <section class="button_container">
+      <div class="box">
+        <router-link to="/create-story" class="btn btn-white btn-animation-1">Create a story -></router-link>
+      </div>
     </section>
   </article>
 </template>
 
 <script lang="ts">
-    import {Component, Prop, Vue} from 'vue-property-decorator';
+import {Component, Prop, Vue} from 'vue-property-decorator';
 import Navbar from '@/components/Navbar.vue';
 
 @Component({ components: { Navbar } })
