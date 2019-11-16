@@ -367,7 +367,13 @@ export default class Landing extends Vue {
     }
 
     blockquote::after{
-      content: '';
+      font-family:Lato, sans-serif;
+      content: "\02EE";
+      color:rgba(30, 7, 66, 0.65);
+      font-size:4em;
+      position: absolute;
+      right: 10px;
+      top: 30px;
     }
 
     blockquote span{
