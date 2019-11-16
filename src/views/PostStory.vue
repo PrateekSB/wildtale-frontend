@@ -1,5 +1,6 @@
 <template>
   <article class="post-story">
+    <navbar/>
     <transition name="slide-fade">
       {{ currentSection }}
       <section class="header" v-if="currentSection === 0">
@@ -38,8 +39,9 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import Navbar from '@/components/Navbar.vue';
 
-@Component
+@Component({ components: { Navbar } })
 export default class PostStory extends Vue {
 	currentSection: number = 0;
 	section1 : string = '';
@@ -55,7 +57,6 @@ export default class PostStory extends Vue {
 .post-story {
   display: flex;
   flex-direction: column;
-  margin: 0.5rem;
   .header {
     margin: auto;
     text-align: center;

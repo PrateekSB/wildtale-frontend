@@ -1,13 +1,7 @@
 <template>
   <article class="dashboard">
-    <section class="custom-navbar">
-      <img src="./../assets/logo.gif" class="imageAnimation">
-      <span class="text">Wild Tales</span>
-    </section>
+    <navbar/>
     <article class="search-bar">
-      <section class="text">
-          <input type="text" id="exampleForm2" class="form-control" placeholder="Search">
-      </section>
       <section class="multi-select">
         <multi-select
           v-model="value" :options="options" :multiple="true" :close-on-select="false"
@@ -29,7 +23,9 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 
-@Component
+import Navbar from '@/components/Navbar.vue';
+
+@Component({ components: { Navbar } })
 export default class Dashboard extends Vue {
   value = [];
   options = [
@@ -83,46 +79,5 @@ export default class Dashboard extends Vue {
 }
 .md-form {
   margin: 0 !important;
-}
-.custom-navbar {
-  height: 9vh;
-  @include desktop {
-    height: 6vh;
-  }
-  padding: 0.5rem;
-  display: flex;
-  align-content: flex-start;
-  justify-content: center;
-  border-bottom: $stack-wildlife-border;
-  box-shadow: $stack-wildlife-shadow-box;
-  .icon {
-    color: $stack-wildlife-green;
-    font-size: 2rem;
-  }
-  .text {
-    color: $stack-wildlife-green;
-    font-size: x-large;
-    margin: 0 1rem;
-  }
-  .imageAnimation {
-    position: absolute;
-    left: 100%;
-    top: 0px;
-    width: 60px;
-    height: 50px;
-    margin-top: -0.5rem;
-    -webkit-animation: moveToLeft 10s linear infinite;
-    animation: moveToLeft 10s linear infinite;
-  }
-
-  @-webkit-keyframes moveToLeft {
-    from {left: 100%;}
-    to {left: 0%;}
-  }
-
-  @keyframes moveToLeft {
-    from {left: 100%;}
-    to {left: 0%;}
-  }
 }
 </style>
