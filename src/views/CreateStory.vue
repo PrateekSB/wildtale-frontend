@@ -2,6 +2,12 @@
   <article class="create-story">
     <navbar/>
     <article class="current-chapter">
+      <div class="input-group p-3" v-if="currentChapter === 1">
+        <input type="text" placeholder="Add title for story"/>
+      </div>
+      <div class="input-group p-3" v-if="currentChapter === 1">
+        <input type="text" placeholder="Add author name"/>
+      </div>
       <div class="input-group p-3">
         <div class="input-group-prepend">
           <span class="input-group-text">Chapter {{ currentChapter }}</span>
