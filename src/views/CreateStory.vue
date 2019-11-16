@@ -20,7 +20,11 @@
             <font-awesome-icon :icon="['fas', 'image']"/>
           </span>
         </div>
-        <input type="file" class="form-control" accept="image/png, image/jpeg, image/jpg">
+        <input type="file" class="form-control"
+          accept="image/png, image/jpeg, image/jpg" @change="updateImagePath">
+        <button class="btn btn-primary" @click="uploadImage()">
+          Submit Story
+        </button>
       </div>
     </article>
     <article v-if="currentChapter < 3" class="next-chapter">
@@ -38,16 +42,38 @@
 
 <script type="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import { mdbContainer, mdbRow, mdbCol, mdbCard, mdbCardImage, mdbCardBody, mdbCardTitle, mdbCardText } from 'mdbvue';
 
 import Navbar from '@/components/Navbar.vue';
+import { getFileLink } from '@/api/tales';
 
-@Component({ components: { Navbar } })
+@Component({ components: { Navbar, mdbContainer, mdbRow, mdbCol, mdbCard, mdbCardImage, mdbCardBody, mdbCardTitle, mdbCardText } })
 export default class CreateStory extends Vue {
-currentChapter = 1;
+  currentChapter = 1;
+  image;
 
-incrementChapter() {
-  this.currentChapter += 1;
-}
+  incrementChapter() {
+    this.currentChapter += 1;
+  }
+
+	async updateImagePath(e) {
+		let files = e.target.files || e.dataTransfer.files;
+		if (!files.length)
+			return;
+    const path = await getFileLink(files);
+    console.log(path);
+		// this.createImage(files);
+  }
+
+	/*createImage(file) {
+		let image = new Image();
+		let reader = new FileReader();
+
+		/!*reader.onload = (e) => {
+			this.image = e.target!.result;
+		};*!/
+		reader.readAsDataURL(file);
+	}*/
 }
 </script>
 
