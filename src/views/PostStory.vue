@@ -1,45 +1,49 @@
 <template>
   <article class="post-story">
-    <navbar/>
-    <article class="header" v-if="currentSection === 0">
+    <article class="header">
       <section class="title">
-        Post a story
-      </section>
-      <article class="text">
-        <span class="number-circle">1</span>
-        Each story can consist a maximum of 3 chapters.
-      </article>
-      <section class="text">
-        <span class="number-circle">2</span>
-        You can upload images and video for each chapter.
-      </section>
-      <section class="text">
-        <span class="number-circle">3</span>
-        After the final chapter, click on submit along with
-        your author name to submit your story!
-      </section>
-      <section class="create">
-        <button class="btn btn-primary" @click="showSection(1)">
-          Create story now ->
-        </button>
+        <div class="typewriter">
+          <h1><b>Post a story.</b></h1>
+        </div>
       </section>
     </article>
+      <section class="timeline">
+        <vue-timeline-update
+          description="Each story can consist a maximum
+          f 3 chapters                ."
+          thumbnail=""
+          category="Step 1"
+          icon="vue"
+          color="green"
+        />
+
+        <vue-timeline-update
+          description="You can upload images and video for &nbsp; each chapter."
+          thumbnail=""
+          category="Step 2"
+          icon="js"
+          color="purple"
+        />
+
+        <vue-timeline-update
+          description="After the final chapter,
+          &nbsp; submit story with author name!"
+          thumbnail=""
+          category="Step 3"
+          icon="css"
+          color="orange"
+          is-last
+        />
+      </section>
   </article>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+    import {Component, Prop, Vue} from 'vue-property-decorator';
 import Navbar from '@/components/Navbar.vue';
 
 @Component({ components: { Navbar } })
 export default class PostStory extends Vue {
-	currentSection: number = 0;
-	section1 : string = '';
-	section2 : string = '';
-
-	showSection(index: number) {
-		this.currentSection = index;
-  }
 }
 </script>
 
@@ -48,12 +52,47 @@ export default class PostStory extends Vue {
   display: flex;
   flex-direction: column;
   .header {
-    margin: auto;
+    height: 8vh;
+    @include desktop {
+      height: 6vh;
+    }
+    padding: 0.5rem;
+    display: flex;
+    align-content: flex-start;
+    justify-content: left;
+    border-bottom: $stack-wildlife-border;
+    box-shadow: $stack-wildlife-shadow-box;
     .title {
       text-align: center;
       font-weight: bold;
-      font-style: italic;
+      font-style: normal;
       height: 5vh;
+      /* GLOBAL STYLES */
+      /* DEMO-SPECIFIC STYLES */
+      .typewriter h1 {
+        color: rgba(30, 7, 66, 0.65);
+        font-family: monospace;
+        overflow: hidden; /* Ensures the content is not revealed until the animation */
+        border-right: .15em solid black; /* The typwriter cursor */
+        white-space: nowrap; /* Keeps the content on a single line */
+        margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+        letter-spacing: .15em; /* Adjust as needed */
+        animation:
+          typing 3.5s steps(30, end),
+          blink-caret .5s step-end infinite;
+      }
+
+      /* The typing effect */
+      @keyframes typing {
+        from { width: 0 }
+        to { width: 100% }
+      }
+
+      /* The typewriter cursor effect */
+      @keyframes blink-caret {
+        from, to { border-color: transparent }
+        50% { border-color: orange }
+      }
     }
     .text {
       display: flex;
@@ -74,6 +113,17 @@ export default class PostStory extends Vue {
       display: flex;
       justify-content: center;
       align-content: center;
+    }
+  }
+  .timeline {
+    justify-content: center;
+    align-items: center;
+    /deep/ .c-vue-timeline-update__ago {
+      font-size: 0px;
+    }
+    /deep/ .c-vue-timeline-update__description {
+      color: rgba(30, 7, 66, 0.65);
+      font-size: 18px;
     }
   }
 }
