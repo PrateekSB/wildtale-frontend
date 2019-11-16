@@ -2,7 +2,7 @@
   <article class="landing">
     <section class="container">
       <article class="wwdc">
-    <span class="spin">
+        <span class="spin">
       <!-- Large Circles -->
       <div class="large circle one"></div>
       <div class="large circle two"></div>
@@ -66,7 +66,6 @@ export default class Login extends Vue {
 .landing {
   display: flex;
   flex-direction: column;
-  height: 100vh;
   margin-top: -5rem;
   @include desktop {
     margin-top: 0;
@@ -277,6 +276,12 @@ export default class Login extends Vue {
   }
 
   .button_container {
+    position: absolute;
+    bottom: 4rem;
+    right: 1rem;
+    @include desktop {
+      right: 20rem;
+    }
     .share_btn{
       display: inline-block;
       text-decoration: none;
