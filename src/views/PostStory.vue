@@ -15,6 +15,7 @@
           category="Step 1"
           icon="vue"
           color="green"
+          date=""
         />
 
         <vue-timeline-update
@@ -23,6 +24,7 @@
           category="Step 2"
           icon="js"
           color="purple"
+          date=""
         />
 
         <vue-timeline-update
@@ -32,6 +34,7 @@
           category="Step 3"
           icon="css"
           color="orange"
+          date=""
           is-last
         />
       </section>
