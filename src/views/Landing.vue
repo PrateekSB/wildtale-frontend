@@ -4,6 +4,7 @@
       <blockquote>
         The wildlife and its habitat cannot speak.
         <span>So we must and we will!</span>
+        check = {{ check }}
       </blockquote>
     </section>
     <section class="container">
@@ -54,14 +55,14 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { check } from '@/api/auth';
+import { getTales } from '@/api/api';
 
 @Component
-export default class Login extends Vue {
-  check: string = '';
+export default class Landing extends Vue {
+  check: any = '';
 
-  async getData() {
-    this.check = await check();
+  async mounted() {
+		this.check = await getTales();
   }
 
   login() {
@@ -344,6 +345,10 @@ export default class Login extends Vue {
     position: absolute;
     width: 100%;
     margin-top: 100px;
+    @include desktop {
+      display: flex;
+      justify-content:center;
+    }
     @import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic);
     blockquote{
       font-size: 1.4em;

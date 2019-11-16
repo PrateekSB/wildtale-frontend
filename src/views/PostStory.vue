@@ -35,6 +35,9 @@
           is-last
         />
       </section>
+    <section>
+      <router-link to="/create-story" class="btn btn-primary">Create a story -> </router-link>
+    </section>
   </article>
 </template>
 

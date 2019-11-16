@@ -5,7 +5,7 @@ module.exports = {
     port: 8080,
     proxy: {
       '/api': {
-        target: 'http://localhost:3000',
+        target: 'https://wildtale-spring-app.herokuapp.com/',
         changeOrigin: true,
       },
     },
