@@ -1,8 +1,9 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Dashboard from '../views/Dashboard.vue';
-import Landing from '../views/Landing.vue';
-import PostStory from '../views/PostStory.vue';
+import Dashboard from '@/views/Dashboard.vue';
+import Landing from '@/views/Landing.vue';
+import PostStory from '@/views/PostStory.vue';
+import CreateStory from '@/views/CreateStory.vue';
 
 Vue.use(VueRouter);
 
@@ -21,6 +22,11 @@ const routes = [
     path: '/post-story',
     name: 'post-story',
     component: PostStory,
+  },
+  {
+    path: '/create-story',
+    name: 'create-story',
+    component: CreateStory,
   },
 ];
 

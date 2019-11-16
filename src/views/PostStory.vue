@@ -1,7 +1,7 @@
 <template>
   <article class="post-story">
     <navbar/>
-    <article class="header" v-if="currentSection === 0">
+    <article class="header">
       <section class="title">
         Post a story
       </section>
@@ -19,9 +19,9 @@
         your author name to submit your story!
       </section>
       <section class="create">
-        <button class="btn btn-primary" @click="showSection(1)">
-          Create story now ->
-        </button>
+        <router-link to="/create-story" class="btn btn-primary">
+          Create story now
+        </router-link>
       </section>
     </article>
   </article>
@@ -33,13 +33,6 @@ import Navbar from '@/components/Navbar.vue';
 
 @Component({ components: { Navbar } })
 export default class PostStory extends Vue {
-	currentSection: number = 0;
-	section1 : string = '';
-	section2 : string = '';
-
-	showSection(index: number) {
-		this.currentSection = index;
-  }
 }
 </script>
 
