@@ -28,10 +28,8 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { mdbInput } from 'mdbvue';
-import MultiSelect from 'vue-multiselect';
 
-@Component({ components: { mdbInput, MultiSelect } })
+@Component
 export default class Dashboard extends Vue {
   value = [];
   options = [

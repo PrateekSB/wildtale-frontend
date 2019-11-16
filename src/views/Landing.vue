@@ -46,9 +46,8 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import { check } from '@/api/auth';
-import { mdbContainer, mdbRow, mdbIcon, mdbCol, mdbBtn, mdbInput } from 'mdbvue';
 
-@Component({ components: { mdbContainer, mdbRow, mdbCol, mdbIcon, mdbBtn, mdbInput } })
+@Component
 export default class Login extends Vue {
   check: string = '';
 
