@@ -23,25 +23,20 @@ export default class Navbar extends Vue {
     padding: 0.5rem;
     display: flex;
     align-content: flex-start;
-    justify-content: center;
+    justify-content: left;
     border-bottom: $stack-wildlife-border;
     box-shadow: $stack-wildlife-shadow-box;
-    .icon {
-      color: $stack-wildlife-green;
-      font-size: 2rem;
-    }
     .text {
       color: $stack-wildlife-green;
       font-size: x-large;
       margin: 0 1rem;
+      border-bottom: 10px $stack-wildlife-green;
     }
     .imageAnimation {
       position: absolute;
-      left: 100%;
-      top: 0px;
+      top: 0;
       width: 60px;
       height: 50px;
-      margin-top: -0.5rem;
       -webkit-animation: moveToLeft 10s linear infinite;
       animation: moveToLeft 10s linear infinite;
     }
