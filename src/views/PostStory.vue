@@ -32,7 +32,13 @@
         category="Step 3"
         icon="css"
         color="green"
-        is-last
+      />
+      <vue-timeline-update
+        thumbnail=""
+        category="Finish"
+        icon="css"
+        color="orange"
+        is-last="true"
       />
       <section class="button_container">
         <div class="box">
