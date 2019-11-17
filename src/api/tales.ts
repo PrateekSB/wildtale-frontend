@@ -5,7 +5,7 @@ export async function getTales() {
   return (await apiCall.get(url)).data;
 }
 
-export async function getFileLink(file) {
+export async function postFileLink(file) {
   let url = '/tales/files/upload';
   const config = { headers: { 'Content-Type': 'multipart/form-data' } };
   const formData = new FormData();

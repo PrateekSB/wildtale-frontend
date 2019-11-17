@@ -17,16 +17,11 @@
       <div class="input-group p-3">
         <div class="input-group-prepend">
           <span class="input-group-text" id="basic-addon1">
-            <font-awesome-icon :icon="['fas', 'image']"/>
+            <font-awesome-icon :icon="['fas', 'camera-retro']"/>
           </span>
           <input type="file" class="form-control"
             accept="image/png, image/jpeg, image/jpg" @change="updateImagePath">
           <span v-if="imageLoading">Uploading image...</span>
-        </div>
-        <div>
-          <button class="btn btn-primary" @click="uploadImage()">
-            Submit Story
-          </button>
         </div>
       </div>
     </article>
@@ -48,7 +43,7 @@ import { Component, Vue } from 'vue-property-decorator';
 import { mdbContainer, mdbRow, mdbCol, mdbCard, mdbCardImage, mdbCardBody, mdbCardTitle, mdbCardText } from 'mdbvue';
 
 import Navbar from '@/components/Navbar.vue';
-import { getFileLink } from '@/api/tales';
+import { postFileLink } from '@/api/tales';
 
 @Component({ components: { Navbar, mdbContainer, mdbRow, mdbCol, mdbCard, mdbCardImage, mdbCardBody, mdbCardTitle, mdbCardText } })
 export default class CreateStory extends Vue {
@@ -63,7 +58,7 @@ export default class CreateStory extends Vue {
 		let file = e.target.files || e.dataTransfer.files;
 		if (!file.length) return;
 		this.imageLoading = true;
-    await getFileLink(file);
+    await postFileLink(file);
 		this.imageLoading = false;
   }
 }
