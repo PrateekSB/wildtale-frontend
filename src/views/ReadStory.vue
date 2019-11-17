@@ -1,7 +1,18 @@
 <template>
   <article>
-    <navbar></navbar>
-    <span v-if="tales">{{ tales }}</span>
+    <navbar/>
+    <article class="tales">
+      {{ tales }}
+      <article v-for="tale in tales">
+        {{ tale.author }}
+        {{ tale.tags }}
+        <section v-for="chapter in tale.chapters">
+          {{ chapter.title }}
+          {{ chapter.story }}
+          {{ chapter.imageUrls }}
+        </section>
+      </article>
+    </article>
   </article>
 </template>
 
@@ -13,7 +24,7 @@ import Navbar from '@/components/Navbar.vue';
 
 @Component({ components: { Navbar } })
 export default class ReadStory extends Vue {
-	tales;
+	tales = [];
 
 	async mounted() {
 		this.tales = await getTales();
@@ -22,5 +33,8 @@ export default class ReadStory extends Vue {
 </script>
 
 <style lang="scss" scoped>
-
+.tales {
+  display: flex;
+  flex-direction: column;
+}
 </style>

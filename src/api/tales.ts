@@ -13,3 +13,10 @@ export async function postFileLink(file) {
   const response = await apiCall.post(url, formData, config);
   return response.data;
 }
+
+export async function postStory(story) {
+  let url = '/tales';
+  const response = await apiCall.post(url, story);
+  console.log(response);
+  return response.data;
+}
