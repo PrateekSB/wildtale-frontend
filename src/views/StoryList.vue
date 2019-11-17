@@ -7,11 +7,12 @@
         <h1>Lion</h1>
         <h4>Panthera leo</h4>
         <span class="minutes">10 min read</span>
-        <p class="type"></p>
+        <p class="type">Strong respect!</p>
       </div>
       <div class="movie_desc">
         <p class="text">
-          Energetic, strong, respect!
+          Everything has its own value.<br>
+          Treat everyone equally.
         </p>
       </div>
     </div>
@@ -23,13 +24,14 @@
       <div class="movie_header">
         <img class="locandina" src="./../assets/animals/giraffe.jpg"/>
         <h1>Giraffe</h1>
-        <h4>2Giraffa</h4>
+        <h4>Giraffa</h4>
         <span class="minutes">12 min read</span>
-        <p class="type">Unique, Fantasy</p>
+        <p class="type">Unique Fantasy</p>
       </div>
       <div class="movie_desc">
         <p class="text">
-          Blah Blah.
+          Dont get jealous of anyone.<br>
+          Great potential end friendships.
         </p>
       </div>
     </div>
@@ -43,12 +45,13 @@
         <h1>Panda</h1>
         <h4>Ailuropoda melanoleuca</h4>
         <span class="minutes">13 min read</span>
-        <p class="type">Adventure</p>
+        <p class="type">Adventure Funny</p>
       </div>
       <div class="movie_desc">
         <p class="text">
-          Blah, blah, blah
-          </p>
+          Find happiness in little things.<br>
+          Treat everyone equally.
+        </p>
       </div>
     </div>
     <div class="blur_back panda_back"></div>
@@ -61,11 +64,12 @@
           <h1>Rhino</h1>
           <h4>Rhinoceros</h4>
           <span class="minutes">12 min read</span>
-          <p class="type">Unique, Fantasy</p>
+          <p class="type">Leadership Empathy</p>
         </div>
         <div class="movie_desc">
           <p class="text">
-            Blah Blah.
+            Take charge.<br>
+            Be the leader everyone wants.
           </p>
         </div>
       </div>
@@ -79,11 +83,12 @@
           <h1>Elephant</h1>
           <h4>Elephant</h4>
           <span class="minutes">13 min read</span>
-          <p class="type">Adventure</p>
+          <p class="type">Perseverance</p>
         </div>
         <div class="movie_desc">
           <p class="text">
-            Blah, blah, blah
+            Humility is a valued trait.<br>
+            Treat everyone equally.
           </p>
         </div>
       </div>
@@ -121,7 +126,6 @@ export default class ReadStory extends Vue {
     margin: 0;
     background: white;
     font-family: 'Montserrat', helvetica, arial, sans-serif;
-    font-size: 14px;
     font-weight: 400;
   }
 
@@ -193,30 +197,7 @@ export default class ReadStory extends Vue {
         height: 50%;
         .text{
           color: #545454;
-        }
-      }
-      .movie_social{
-        height: 10%;
-        padding-left: 15px;
-        padding-bottom: 20px;
-        ul{
-          list-style: none;
-          padding: 0;
-          li{
-            display: inline-block;
-            color: rgba(0,0,0,0.3);
-            transition: color 0.3s;
-            transition-delay: 0.15s;
-            margin: 0 10px;
-            &:hover{
-              transition: color 0.3s;
-              color: rgba(0,0,0,0.7);
-            }
-            i{
-              font-size: 19px;
-              cursor: pointer;
-            }
-          }
+          font-size: 1.6rem;
         }
       }
     }
