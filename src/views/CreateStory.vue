@@ -140,14 +140,6 @@ export default class CreateStory extends Vue {
 		videoUrls: '',
 	};
 
-  incrementChapter(index) {
-    this.currentChapter = index;
-  }
-
-	goback() {
-  	this.$router.back();
-  }
-
   async getImagePath(e) {
 		let file = e.target.files || e.dataTransfer.files;
 		if (!file.length) return;
@@ -159,6 +151,7 @@ export default class CreateStory extends Vue {
 
 	async updateImagePathChapter1(e) {
 		this.chapter1.imageUrls = (await this.getImagePath(e)).url;
+		console.log(this.chapter1);
   }
 
 	async updateImagePathChapter2(e) {
@@ -198,6 +191,7 @@ export default class CreateStory extends Vue {
 				author: this.author,
 				tags: [this.tags],
 			};
+			console.log(this.story);
 			await postStory(this.story);
 			this.$notify({
 				type: 'success',
