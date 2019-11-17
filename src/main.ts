@@ -2,6 +2,7 @@ import Vue from 'vue';
 import axios from 'axios';
 import App from './App.vue';
 import './registerServiceWorker';
+import Notifications from 'vue-notification';
 import router from './router';
 import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbootstrap/css/mdb.css';
@@ -21,6 +22,7 @@ Vue.config.productionTip = false;
 Vue.prototype.$http = axios;
 
 Vue.use(SequentialEntrance);
+Vue.use(Notifications);
 
 library.add(fas);
 Vue.component('font-awesome-icon', FontAwesomeIcon);

@@ -1,6 +1,9 @@
 <template>
   <article class="post-story">
     <article class="header">
+      <span @click="$router.push('/')">
+        <font-awesome-icon :icon="['fas', 'angle-left']" class="back-btn"/>
+      </span>
       <section class="title">
         <div class="typewriter">
           <h1><b>Post a story.</b></h1>

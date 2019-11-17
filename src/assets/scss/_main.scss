@@ -127,3 +127,10 @@ body {
   transform: scaleX(1.4) scaleY(1.6);
   opacity: 0;
 }
+
+.back-btn {
+  font-size: 2rem;
+  margin-top: 0.5rem;
+  color: $stack-wildlife-green;
+  font-weight: normal;
+}

@@ -1,6 +1,9 @@
 <template>
   <article class="create-story">
     <article class="header">
+      <span @click="$router.push('/post-story')">
+        <font-awesome-icon :icon="['fas', 'angle-left']" class="back-btn"/>
+      </span>
       <section class="title">
         <div class="typewriter">
           <h1><b>Submit your story!</b></h1>
@@ -90,7 +93,9 @@
             </div>
           </div>
           <div class="profile-card-ctr">
-            <button class="profile-card__button button--blue js-message-btn">Submit</button>
+            <button class="profile-card__button button--blue js-message-btn" @click="postStory()">
+              Submit
+            </button>
           </div>
         </div>
       </div>
@@ -139,6 +144,10 @@ export default class CreateStory extends Vue {
     this.currentChapter = index;
   }
 
+	goback() {
+  	this.$router.back();
+  }
+
   async getImagePath(e) {
 		let file = e.target.files || e.dataTransfer.files;
 		if (!file.length) return;
@@ -161,25 +170,41 @@ export default class CreateStory extends Vue {
 	}
 
 	scrollDown(el) {
-		let element = document.getElementById(el);
-		//@ts-ignore
-		let top = element.offsetTop;
-		window.scrollTo({
-			top,
-			left: 0,
-			behavior: 'smooth'
+  	if (!this.imageLoading) {
+			let element = document.getElementById(el);
+			//@ts-ignore
+			let top = element.offsetTop;
+			window.scrollTo({
+				top,
+				left: 0,
+				behavior: 'smooth'
+			});
+    }
+  }
+
+  mounted() {
+		this.$notify({
+			type: 'success',
+			duration: 10,
+			title: 'Posted story! Thank you for the contribution.'
 		});
-		// window.scrollTo(0, top);
   }
 
 	async postStory() {
-  	const chapters = [this.chapter1, this.chapter2, this.chapter3];
-    this.story = {
-			chapters,
-      author: this.author,
-			tags: [this.tags],
-    };
-    await postStory(this.story);
+		if (!this.imageLoading) {
+			const chapters = [this.chapter1, this.chapter2, this.chapter3];
+			this.story = {
+				chapters,
+				author: this.author,
+				tags: [this.tags],
+			};
+			await postStory(this.story);
+			this.$notify({
+				type: 'success',
+        duration: 1000,
+				title: 'Posted story! Thank you for the contribution.'
+			});
+		}
   }
 }
 </script>
