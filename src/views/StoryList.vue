@@ -19,24 +19,24 @@
     <div class="blur_back lion_back"></div>
   </div>
 
-  <div class="movie_card" id="giraffe">
-    <div class="info_section">
-      <div class="movie_header">
-        <img class="locandina" src="./../assets/animals/giraffe.jpg"/>
-        <h1>Giraffe</h1>
-        <h4>Giraffa</h4>
-        <span class="minutes">12 min read</span>
-        <p class="type">Unique Fantasy</p>
+    <div class="movie_card" id="elephant">
+      <div class="info_section">
+        <div class="movie_header">
+          <img class="locandina" src="./../assets/animals/elephant.png"/>
+          <h1>Elephant</h1>
+          <h4>Elephant</h4>
+          <span class="minutes">13 min read</span>
+          <p class="type">Perseverance</p>
+        </div>
+        <div class="movie_desc">
+          <p class="text">
+            Humility is a valued trait.<br>
+            Treat everyone equally.
+          </p>
+        </div>
       </div>
-      <div class="movie_desc">
-        <p class="text">
-          Dont get jealous of anyone.<br>
-          Great potential end friendships.
-        </p>
-      </div>
+      <div class="blur_back elephant_back"></div>
     </div>
-    <div class="blur_back giraffe_back"></div>
-  </div>
 
   <div class="movie_card" id="panda">
     <div class="info_section">
@@ -76,23 +76,23 @@
       <div class="blur_back rhino_back"></div>
     </div>
 
-    <div class="movie_card" id="elephant">
+    <div class="movie_card" id="giraffe">
       <div class="info_section">
         <div class="movie_header">
-          <img class="locandina" src="./../assets/animals/elephant.png"/>
-          <h1>Elephant</h1>
-          <h4>Elephant</h4>
-          <span class="minutes">13 min read</span>
-          <p class="type">Perseverance</p>
+          <img class="locandina" src="./../assets/animals/giraffe.jpg"/>
+          <h1>Giraffe</h1>
+          <h4>Giraffa</h4>
+          <span class="minutes">12 min read</span>
+          <p class="type">Unique Fantasy</p>
         </div>
         <div class="movie_desc">
           <p class="text">
-            Humility is a valued trait.<br>
-            Treat everyone equally.
+            Dont get jealous of anyone.<br>
+            Great potential end friendships.
           </p>
         </div>
       </div>
-      <div class="blur_back elephant_back"></div>
+      <div class="blur_back giraffe_back"></div>
     </div>
 
   </article>
