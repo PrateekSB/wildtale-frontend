@@ -1,5 +1,12 @@
 <template>
   <article class="create-story">
+    <article class="header">
+      <section class="title">
+        <div class="typewriter">
+          <h1><b>Submit your story!</b></h1>
+        </div>
+      </section>
+    </article>
     <section class="chapter">
       <div class="profile-card js-profile-card">
         <div class="profile-card__img">
@@ -8,24 +15,31 @@
         <div class="profile-card__cnt js-profile-cnt">
           <div class="profile-card__name">Chapter One</div>
           <div class="profile-card__txt">
-            <input type="profile-card__txt" placeholder="Add author name" v-model="author"/>
-            <input type="text" placeholder="Chapter 1 title" v-model="chapter1.title"/>
+            <input class="form-control" type="profile-card__txt" placeholder="Author name" v-model="author"/>
+            <input class="form-control" type="text" placeholder="Chapter 1 title" v-model="chapter1.title"/>
+            <input class="form-control" type="profile-card__txt" placeholder="Tags" v-model="tags"/>
             <textarea class="form-control" aria-label="With textarea"
-                      rows="10" v-model="chapter1.story"></textarea>
-            <span class="input-group-text">
-            <font-awesome-icon :icon="['fas', 'camera-retro']"/>
-          </span>
-            <input type="file" class="form-control"
-                   accept="image/png, image/jpeg, image/jpg" @change="updateImagePathChapter1">
-            <span v-if="imageLoading">Uploading image...</span>
+                      rows="8" v-model="chapter1.story"></textarea>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">
+                  <font-awesome-icon :icon="['fas', 'camera-retro']"/>
+                </span>
+              </div>
+              <input type="file" class="form-control"
+                     accept="image/png, image/jpeg, image/jpg" @change="updateImagePathChapter1">
+              <span v-if="imageLoading">Uploading image...</span>
+            </div>
           </div>
           <div class="profile-card-ctr">
-            <button class="profile-card__button button--blue js-message-btn">Submit</button>
+            <button class="profile-card__button button--blue" @click="scrollDown('chapter_2')">
+              <font-awesome-icon :icon="['fas', 'chevron-down']" class="icon"/>
+            </button>
           </div>
         </div>
         </div>
     </section>
-    <section class="chapter">
+    <section class="chapter" ref="chapter_2" id="chapter_2">
       <div class="profile-card js-profile-card">
         <div class="profile-card__img">
           <img src="./../assets/two.gif" alt="profile card">
@@ -33,24 +47,28 @@
         <div class="profile-card__cnt js-profile-cnt">
           <div class="profile-card__name">Chapter Two</div>
           <div class="profile-card__txt">
-            <input type="profile-card__txt" placeholder="Add author name" v-model="author"/>
-            <input type="text" placeholder="Chapter 2 title" v-model="chapter2.title"/>
             <textarea class="form-control" aria-label="With textarea"
                       rows="10" v-model="chapter2.story"></textarea>
-            <span class="input-group-text">
-            <font-awesome-icon :icon="['fas', 'camera-retro']"/>
-          </span>
-            <input type="file" class="form-control"
-                   accept="image/png, image/jpeg, image/jpg" @change="updateImagePathChapter1">
-            <span v-if="imageLoading">Uploading image...</span>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <font-awesome-icon :icon="['fas', 'camera-retro']"/>
+                </span>
+              </div>
+              <input type="file" class="form-control"
+                 accept="image/png, image/jpeg, image/jpg" @change="updateImagePathChapter2">
+              <span v-if="imageLoading">Uploading image...</span>
+            </div>
           </div>
           <div class="profile-card-ctr">
-            <button class="profile-card__button button--blue js-message-btn">Submit</button>
+            <button class="profile-card__button button--blue js-message-btn" @click="scrollDown('chapter_3')">
+              <font-awesome-icon :icon="['fas', 'chevron-down']" class="icon"/>
+            </button>
           </div>
         </div>
       </div>
     </section>
-    <section class="chapter">
+    <section class="chapter" ref="chapter_3" id="chapter_3">
       <div class="profile-card js-profile-card">
         <div class="profile-card__img">
           <img src="./../assets/three.gif" alt="profile card">
@@ -58,16 +76,18 @@
         <div class="profile-card__cnt js-profile-cnt">
           <div class="profile-card__name">Chapter Three</div>
           <div class="profile-card__txt">
-            <input type="profile-card__txt" placeholder="Add author name" v-model="author"/>
-            <input type="text" placeholder="Chapter 2 title" v-model="chapter3.title"/>
             <textarea class="form-control" aria-label="With textarea"
                       rows="10" v-model="chapter3.story"></textarea>
-            <span class="input-group-text">
-            <font-awesome-icon :icon="['fas', 'camera-retro']"/>
-          </span>
-            <input type="file" class="form-control"
-                   accept="image/png, image/jpeg, image/jpg" @change="updateImagePathChapter1">
-            <span v-if="imageLoading">Uploading image...</span>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <font-awesome-icon :icon="['fas', 'camera-retro']"/>
+                </span>
+              </div>
+              <input type="file" class="form-control"
+                     accept="image/png, image/jpeg, image/jpg" @change="updateImagePathChapter3">
+              <span v-if="imageLoading">Uploading image...</span>
+            </div>
           </div>
           <div class="profile-card-ctr">
             <button class="profile-card__button button--blue js-message-btn">Submit</button>
@@ -117,8 +137,6 @@ export default class CreateStory extends Vue {
 
   incrementChapter(index) {
     this.currentChapter = index;
-		console.log('incrementing chapter to', index);
-    console.log(this.chapter1);
   }
 
   async getImagePath(e) {
@@ -142,6 +160,18 @@ export default class CreateStory extends Vue {
 		this.chapter3.imageUrls = (await this.getImagePath(e)).url;
 	}
 
+	scrollDown(el) {
+		let element = document.getElementById(el);
+		//@ts-ignore
+		let top = element.offsetTop;
+		window.scrollTo({
+			top,
+			left: 0,
+			behavior: 'smooth'
+		});
+		// window.scrollTo(0, top);
+  }
+
 	async postStory() {
   	const chapters = [this.chapter1, this.chapter2, this.chapter3];
     this.story = {
@@ -150,7 +180,6 @@ export default class CreateStory extends Vue {
 			tags: [this.tags],
     };
     await postStory(this.story);
-    console.log(this.story);
   }
 }
 </script>
@@ -159,57 +188,20 @@ export default class CreateStory extends Vue {
 .create-story {
   display: flex;
   justify-content: center;
+  align-content: center;
+  margin: auto;
   flex-direction: column;
-  background: $stack-wildlife-green-light;
   .current-chapter {
     margin: 1rem 0.2rem 0.2rem;
     display: flex;
     justify-content: center;
     flex-direction: column;
   }
-  .next-chapter {
-    position: absolute;
-    width: 100%;
-    bottom: 0;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    > section {
-      width: 80%;
-      border-bottom: 0;
-      padding: 0.5rem;
-      border-top-left-radius: 20px;
-      border-top-right-radius: 20px;
-      color: white;
-      text-align: center;
-      font-weight: bold;
-      background-image: linear-gradient($stack-wildlife-green-light, $stack-wildlife-green);
-    }
-  }
   .chapter {
-    html {
-      position: relative;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Quicksand', sans-serif;
-      color: #324e63;
-    }
-
-    a, a:hover {
-      text-decoration: none;
-    }
-
     .profile-card {
-      margin-top: 20%;
-      margin-left: 5%;
-      width: 90%;
-      min-height: 460px;
-      box-shadow: 0px 8px 60px -10px rgba(13,28,39,0.6);
+      margin: 6rem auto;
+      height: auto;
+      box-shadow: 0px 8px 60px -10px rgba(13, 28, 39, 0.6);
       background: #fff;
       border-radius: 12px;
       max-width: 700px;
@@ -353,7 +345,7 @@ export default class CreateStory extends Vue {
           justify-content: center;
           color: #fff;
           background: #405de6;
-          box-shadow: 0px 7px 30px rgba(43,98,169,0.5);
+          box-shadow: 0px 7px 30px rgba(43, 98, 169, 0.5);
           position: relative;
           font-size: 21px;
           flex-shrink: 0;
@@ -365,7 +357,7 @@ export default class CreateStory extends Vue {
             margin: 10px;
           }
 
-          @media screen and (min-width: 768px){
+          @media screen and (min-width: 768px) {
             &:hover {
               transform: scale(1.2);
             }
@@ -424,7 +416,7 @@ export default class CreateStory extends Vue {
         }
 
         &:focus {
-          outline: none!important;
+          outline: none !important;
         }
 
         @media screen and (min-width: 768px) {
@@ -553,8 +545,52 @@ export default class CreateStory extends Vue {
 
     }
   }
-  .chapter {
-
-     }
 }
+.header {
+  height: 8vh;
+  @include desktop {
+    height: 6vh;
+  }
+  padding: 0.5rem;
+  display: flex;
+  align-content: flex-start;
+  justify-content: left;
+  border-bottom: $stack-wildlife-border;
+  box-shadow: $stack-wildlife-shadow-box;
+  .title {
+    text-align: center;
+    margin: auto;
+    font-weight: bold;
+    font-style: normal;
+    height: 5vh;
+    /* GLOBAL STYLES */
+    /* DEMO-SPECIFIC STYLES */
+    .typewriter h1 {
+      color: rgba(30, 7, 66, 0.65);
+      font-family: AmaticBold;
+      font-size: 2.5rem;
+      overflow: hidden; /* Ensures the content is not revealed until the animation */
+      border-right: .15em solid black; /* The typwriter cursor */
+      white-space: nowrap; /* Keeps the content on a single line */
+      margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+      letter-spacing: .15em; /* Adjust as needed */
+      animation:
+        typing 3.5s steps(30, end),
+        blink-caret .5s step-end infinite;
+    }
+
+    /* The typing effect */
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    /* The typewriter cursor effect */
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: orange }
+    }
+  }
+}
+
 </style>

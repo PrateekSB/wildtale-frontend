@@ -8,45 +8,26 @@
       </section>
     </article>
     <section class="timeline">
-      <vue-timeline-update
-        description="Each story can consist a maximum
-        f 3 chapters                ."
-        thumbnail=""
-        category="Step 1"
-        icon="vue"
-        color="orange"
-      />
-
-      <vue-timeline-update
-        description="You can upload images and video for &nbsp; each chapter."
-        thumbnail=""
-        category="Step 2"
-        icon="js"
-        color="purple"
-      />
-
-      <vue-timeline-update
-        description="After the final chapter,
-        &nbsp; submit story with author name!"
-        thumbnail=""
-        category="Step 3"
-        icon="css"
-        color="green"
-      />
-      <vue-timeline-update
-        thumbnail=""
-        category="Finish"
-        icon="css"
-        color="orange"
-        is-last="true"
-      />
-      <section class="button_container">
-        <div class="box">
+      <section class="step">
+        <span class="number">Step 1</span>
+        <span class="text">Each story can consist a maximum of 3 chapters <br/>with an author name
+        and tag of an animal being referenced to.</span>
+      </section>
+      <section class="step">
+        <span class="number">Step 2</span>
+        <span class="text">You can upload images and video for each chapter</span>
+      </section>
+      <section class="step">
+        <span class="number">Step 3</span>
+        <span class="text">Submit the story to share!</span>
+      </section>
+      <section class="btn-container">
+        <section>
           <router-link to="/create-story" class="btn btn-white btn-animation-1">
             Create a story
             <font-awesome-icon :icon="['fas', 'angle-right']" class="icon"/>
           </router-link>
-        </div>
+        </section>
       </section>
     </section>
   </article>
@@ -86,7 +67,8 @@ export default class PostStory extends Vue { }
         /* DEMO-SPECIFIC STYLES */
         .typewriter h1 {
           color: rgba(30, 7, 66, 0.65);
-          font-family: Lato, sans-serif;
+          font-family: AmaticBold;
+          font-size: 2.5rem;
           overflow: hidden; /* Ensures the content is not revealed until the animation */
           border-right: .15em solid black; /* The typwriter cursor */
           white-space: nowrap; /* Keeps the content on a single line */
@@ -109,33 +91,38 @@ export default class PostStory extends Vue { }
           50% { border-color: orange }
         }
       }
-      .text {
+    }
+    .timeline {
+      margin: 6rem auto auto;
+      @include desktop {
+        margin-top: 10rem;
+      }
+      .step {
         display: flex;
-        flex-direction: row;
-        height: 10vh;
-        .number-circle {
+        justify-content: left;
+        padding: 1rem;
+        .number {
           border-radius: 50px;
-          width: 40px;
+          min-width: 100px;
           height: 40px;
-          padding: 0.5rem;
           background-image: linear-gradient($stack-wildlife-green-light, $stack-wildlife-green);
           color: white;
           text-align: center;
           display: inline-block;
+          font-family: AmaticBold;
+          font-size: 2rem;
+        }
+        .text {
+          margin-left: 0.5rem;
+          margin-top: 0.5rem;
         }
       }
     }
-    .timeline {
-      margin: 2rem auto auto;
-      /deep/ .c-vue-timeline-update__ago {
-        font-size: 0px;
-      }
-      /deep/ .c-vue-timeline-update__description {
-        color: rgba(30, 7, 66, 0.65);
-        font-size: 18px;
-      }
-      /deep/ .c-vue-timeline-update__category {
-        font-family: Lato, sans-serif;
+    .btn-container {
+      text-align: center;
+      margin-top: 1.5rem;
+      @include desktop {
+        margin: 1rem auto auto 0.5rem;
       }
     }
     .icon {
