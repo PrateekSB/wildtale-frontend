@@ -49,6 +49,7 @@
         </div>
         <div class="profile-card__cnt js-profile-cnt">
           <div class="profile-card__name">Chapter Two</div>
+          <input class="form-control" type="text" placeholder="Chapter 2 title" v-model="chapter2.title"/>
           <div class="profile-card__txt">
             <textarea class="form-control" aria-label="With textarea"
                       rows="10" v-model="chapter2.story"></textarea>
@@ -78,6 +79,7 @@
         </div>
         <div class="profile-card__cnt js-profile-cnt">
           <div class="profile-card__name">Chapter Three</div>
+          <input class="form-control" type="text" placeholder="Chapter 3 title" v-model="chapter3.title"/>
           <div class="profile-card__txt">
             <textarea class="form-control" aria-label="With textarea"
                       rows="10" v-model="chapter3.story"></textarea>
@@ -96,6 +98,9 @@
             <button class="profile-card__button button--blue js-message-btn" @click="postStory()">
               Submit
             </button>
+          </div>
+          <div v-if="uploadSuccess">
+            Upload successful!
           </div>
         </div>
       </div>
@@ -116,6 +121,7 @@ export default class CreateStory extends Vue {
 	author = '';
 	chapters = [];
 	tags = '';
+	uploadSuccess = false;
   currentChapter = 1;
   imageLoading = false;
 	chapter1 = {
@@ -151,7 +157,6 @@ export default class CreateStory extends Vue {
 
 	async updateImagePathChapter1(e) {
 		this.chapter1.imageUrls = (await this.getImagePath(e)).url;
-		console.log(this.chapter1);
   }
 
 	async updateImagePathChapter2(e) {
@@ -175,14 +180,6 @@ export default class CreateStory extends Vue {
     }
   }
 
-  mounted() {
-		this.$notify({
-			type: 'success',
-			duration: 10,
-			title: 'Posted story! Thank you for the contribution.'
-		});
-  }
-
 	async postStory() {
 		if (!this.imageLoading) {
 			const chapters = [this.chapter1, this.chapter2, this.chapter3];
@@ -191,13 +188,14 @@ export default class CreateStory extends Vue {
 				author: this.author,
 				tags: [this.tags],
 			};
-			console.log(this.story);
 			await postStory(this.story);
-			this.$notify({
-				type: 'success',
-        duration: 1000,
-				title: 'Posted story! Thank you for the contribution.'
-			});
+			this.uploadSuccess = true;
+			setTimeout(
+				() => {
+					this.uploadSuccess = false;
+				},
+				20000,
+			);
 		}
   }
 }

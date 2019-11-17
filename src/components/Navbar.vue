@@ -28,9 +28,10 @@ export default class Navbar extends Vue {
     box-shadow: $stack-wildlife-shadow-box;
     .text {
       color: $stack-wildlife-green;
-      font-size: x-large;
       margin: 0 1rem;
       border-bottom: 10px $stack-wildlife-green;
+      font-family: AmaticBold;
+      font-size: 2rem;
     }
     .imageAnimation {
       position: absolute;
