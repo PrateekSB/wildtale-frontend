@@ -1,17 +1,18 @@
 <template>
   <article class="tales">
-
-    <div class="movie_card" id="rhino" @click="$router.push('/selected-list')">
+    <div class="movie_card" id="rhino" @click="$router.push('/selected-list')" v-for="tale in tales">
       <div class="info_section">
         <div class="movie_header">
-          <img class="locandina" src="./../assets/animals/rhino.jpg"/>
-          <h1>Rhino</h1>
+          <img class="locandina" :src="tale.chapters[0].imageUrl"/>
+          <h4>Written by: {{ tale.author }}</h4>
         </div>
+        <br/>
         <div class="movie_desc">
-          <p class="text">
-            Take charge.<br>
-            Be the leader everyone wants.
-          </p>
+          <span class="text" v-for="chapter in tale.chapters">
+            Chapter {{ chapter.order }}: <br/>
+            {{ chapter.title }} <br/>
+            <span style="font-size: 1rem;">{{ chapter.story }}</span> <br/>
+          </span>
         </div>
       </div>
       <div class="blur_back rhino_back"></div>
@@ -21,19 +22,19 @@
 </template>
 
 <script lang="ts">
-    import { Component, Vue }  from 'vue-property-decorator';
-    import { getTales } from '@/api/tales';
+import { Component, Vue }  from 'vue-property-decorator';
+import { getTales } from '@/api/tales';
 
-    import Navbar from '@/components/Navbar.vue';
+import Navbar from '@/components/Navbar.vue';
 
-    @Component({ components: { Navbar } })
-    export default class SelectedList extends Vue {
-        tales = [];
+@Component({ components: { Navbar } })
+export default class SelectedList extends Vue {
+  tales = [];
 
-        async mounted() {
-            this.tales = await getTales();
-        }
-    }
+  async mounted() {
+      this.tales = await getTales();
+  }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -63,8 +64,8 @@
       position: relative;
       display: block;
       width: 800px;
-      height: 350px;
-      margin: 80px auto;
+      height: auto;
+      margin: 0.5rem auto;
       overflow: hidden;
       border-radius: 10px;
       transition: all 0.4s;
@@ -139,7 +140,7 @@
       }
 
       .movie_desc{
-        width: 50%;
+        // width: 50%;
       }
 
       .info_section{
