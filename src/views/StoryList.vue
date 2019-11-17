@@ -57,7 +57,7 @@
     <div class="blur_back panda_back"></div>
   </div>
 
-    <div class="movie_card" id="rhino">
+    <div class="movie_card" id="rhino" @click="$router.push('/selected-list')">
       <div class="info_section">
         <div class="movie_header">
           <img class="locandina" src="./../assets/animals/rhino.jpg"/>
