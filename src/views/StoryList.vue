@@ -1,18 +1,95 @@
 <template>
-  <article>
-    <navbar/>
-    <article class="tales mt-2">
-      <article v-for="tale in tales" class="m-1 mx-auto">
-        <div class="card" style="width: 18rem;">
-          <img src="http://res.cloudinary.com/dnfs1zgww/image/upload/v1573966208/fmawgkga4x5guyhlqjif.jpg"
-               class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">{{ tale.author }}</h5>
-            <p class="card-text">{{ tale.tags }}</p>
-          </div>
+  <article class="tales">
+  <div class="movie_card" id="lion">
+    <div class="info_section">
+      <div class="movie_header">
+        <img class="locandina" src="./../assets/animals/lion.jpg"/>
+        <h1>Lion</h1>
+        <h4>Panthera leo</h4>
+        <span class="minutes">10 min read</span>
+        <p class="type"></p>
+      </div>
+      <div class="movie_desc">
+        <p class="text">
+          Energetic, strong, respect!
+        </p>
+      </div>
+    </div>
+    <div class="blur_back lion_back"></div>
+  </div>
+
+  <div class="movie_card" id="giraffe">
+    <div class="info_section">
+      <div class="movie_header">
+        <img class="locandina" src="./../assets/animals/giraffe.jpg"/>
+        <h1>Giraffe</h1>
+        <h4>2Giraffa</h4>
+        <span class="minutes">12 min read</span>
+        <p class="type">Unique, Fantasy</p>
+      </div>
+      <div class="movie_desc">
+        <p class="text">
+          Blah Blah.
+        </p>
+      </div>
+    </div>
+    <div class="blur_back giraffe_back"></div>
+  </div>
+
+  <div class="movie_card" id="panda">
+    <div class="info_section">
+      <div class="movie_header">
+        <img class="locandina" src="./../assets/animals/panda.jpg"/>
+        <h1>Panda</h1>
+        <h4>Ailuropoda melanoleuca</h4>
+        <span class="minutes">13 min read</span>
+        <p class="type">Adventure</p>
+      </div>
+      <div class="movie_desc">
+        <p class="text">
+          Blah, blah, blah
+          </p>
+      </div>
+    </div>
+    <div class="blur_back panda_back"></div>
+  </div>
+
+    <div class="movie_card" id="rhino">
+      <div class="info_section">
+        <div class="movie_header">
+          <img class="locandina" src="./../assets/animals/rhino.jpg"/>
+          <h1>Rhino</h1>
+          <h4>Rhinoceros</h4>
+          <span class="minutes">12 min read</span>
+          <p class="type">Unique, Fantasy</p>
         </div>
-      </article>
-    </article>
+        <div class="movie_desc">
+          <p class="text">
+            Blah Blah.
+          </p>
+        </div>
+      </div>
+      <div class="blur_back rhino_back"></div>
+    </div>
+
+    <div class="movie_card" id="elephant">
+      <div class="info_section">
+        <div class="movie_header">
+          <img class="locandina" src="./../assets/animals/elephant.png"/>
+          <h1>Elephant</h1>
+          <h4>Elephant</h4>
+          <span class="minutes">13 min read</span>
+          <p class="type">Adventure</p>
+        </div>
+        <div class="movie_desc">
+          <p class="text">
+            Blah, blah, blah
+          </p>
+        </div>
+      </div>
+      <div class="blur_back elephant_back"></div>
+    </div>
+
   </article>
 </template>
 
@@ -36,5 +113,189 @@ export default class ReadStory extends Vue {
 .tales {
   display: flex;
   flex-direction: column;
+  @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,700,800');
+  box-sizing: border-box;
+  margin: 0;
+
+  html, body{
+    margin: 0;
+    background: white;
+    font-family: 'Montserrat', helvetica, arial, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .link{
+    display: block;
+    text-align: center;
+    color: #777;
+    text-decoration: none;
+    padding: 10px;
+  }
+
+  .movie_card{
+    position: relative;
+    display: block;
+    width: 800px;
+    height: 350px;
+    margin: 80px auto;
+    overflow: hidden;
+    border-radius: 10px;
+    transition: all 0.4s;
+    box-shadow: 0px 0px 120px -25px rgba(0,0,0, 0.5);
+    &:hover{
+      transform: scale(1.02);
+      box-shadow: 0px 0px 80px -25px rgba(0,0,0, 0.5);
+      transition: all 0.4s;
+    }
+    .info_section{
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background-blend-mode: multiply;
+      z-index: 2;
+      border-radius: 10px;
+      .movie_header{
+        position: relative;
+        padding: 25px;
+        height: 40%;
+        h1{
+          color: black;
+          font-weight: 400;
+        }
+        h4{
+          color: #555;
+          font-weight: 400;
+        }
+        .minutes{
+          display: inline-block;
+          margin-top: 15px;
+          color: #555;
+          padding: 5px;
+          border-radius: 5px;
+          border: 1px solid rgba(0,0,0,0.05);
+        }
+        .type{
+          display: inline-block;
+          color: #959595;
+          margin-left: 10px;
+        }
+        .locandina{
+          position: relative;
+          float: left;
+          margin-right: 20px;
+          height: 120px;
+          box-shadow: 0 0 20px -10px rgba(0,0,0,0.5);
+        }
+      }
+      .movie_desc{
+        padding: 25px;
+        height: 50%;
+        .text{
+          color: #545454;
+        }
+      }
+      .movie_social{
+        height: 10%;
+        padding-left: 15px;
+        padding-bottom: 20px;
+        ul{
+          list-style: none;
+          padding: 0;
+          li{
+            display: inline-block;
+            color: rgba(0,0,0,0.3);
+            transition: color 0.3s;
+            transition-delay: 0.15s;
+            margin: 0 10px;
+            &:hover{
+              transition: color 0.3s;
+              color: rgba(0,0,0,0.7);
+            }
+            i{
+              font-size: 19px;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+    .blur_back{
+      position: absolute;
+      top: 0;
+      z-index: 1;
+      height: 100%; right: 0;
+      background-size: cover;
+      border-radius: 11px;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .movie_header{
+      width: 65%;
+    }
+
+    .movie_desc{
+      width: 50%;
+    }
+
+    .info_section{
+      background: linear-gradient(to right, #e5e6e6 50%, transparent 100%);
+    }
+
+    .blur_back{
+      width: 80%;
+      background-position: -100% 10% !important;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .movie_card{
+      width: 95%;
+      margin: 70px auto;
+      min-height: 350px;
+      height: auto;
+    }
+
+    .blur_back{
+      width: 100%;
+      background-position: 50% 50% !important;
+    }
+
+    .movie_header{
+      width: 100%;
+      margin-top: 85px;
+    }
+
+    .movie_desc{
+      width: 100%;
+    }
+
+    .info_section{
+      background: linear-gradient(to top, #e5e6e6 50%, transparent 100%);
+      display: inline-grid;
+    }
+  }
+
+
+  .lion_back{
+    background: url("./../assets/animals/lion.jpg");
+  }
+
+  .giraffe_back{
+    background: url("./../assets/animals/giraffe.jpg");
+  }
+
+  .panda_back{
+    background: url("./../assets/animals/panda.jpg");
+  }
+
+  .rhino_back{
+    background: url("./../assets/animals/rhino.jpg");
+  }
+
+  .elephant_back{
+    background: url("./../assets/animals/elephant.png");
+  }
 }
 </style>
