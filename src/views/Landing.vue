@@ -49,7 +49,7 @@
         </router-link>
       </div>
       <div class="box">
-        <router-link to="/read-story" class="btn btn-white btn-animation-1">
+        <router-link to="/story-list" class="btn btn-white btn-animation-1">
           <font-awesome-icon :icon="['fas', 'glasses']" class="icon"/>
           Read Stories
         </router-link>

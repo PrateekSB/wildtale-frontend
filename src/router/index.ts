@@ -4,7 +4,7 @@ import Dashboard from '@/views/Dashboard.vue';
 import Landing from '@/views/Landing.vue';
 import PostStory from '@/views/PostStory.vue';
 import CreateStory from '@/views/CreateStory.vue';
-import ReadStory from '@/views/ReadStory.vue';
+import StoryList from '@/views/StoryList.vue';
 
 Vue.use(VueRouter);
 
@@ -30,9 +30,9 @@ const routes = [
     component: CreateStory,
   },
   {
-    path: '/read-story',
-    name: 'read-story',
-    component: ReadStory,
+    path: '/story-list',
+    name: 'story-list',
+    component: StoryList,
   },
 ];
 
