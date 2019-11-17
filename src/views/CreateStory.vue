@@ -193,7 +193,7 @@ export default class CreateStory extends Vue {
 			};
 			await postStory(this.story);
 			this.uploadSuccess = true;
-			this.$router.push('/read-story');
+			this.$router.push('/story-list');
 		}
   }
 }
