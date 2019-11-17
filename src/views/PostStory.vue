@@ -47,8 +47,11 @@ export default class PostStory extends Vue { }
 
 <style lang="scss" scoped>
   .post-story {
+    @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,700,800');
     display: flex;
     flex-direction: column;
+    font-family: 'Montserrat', helvetica, arial, sans-serif;
+    font-weight: 400;
     .header {
       height: 8vh;
       @include desktop {
@@ -118,6 +121,7 @@ export default class PostStory extends Vue { }
         .text {
           margin-left: 0.5rem;
           margin-top: 0.5rem;
+          font-size: 1.6rem;
         }
       }
     }
