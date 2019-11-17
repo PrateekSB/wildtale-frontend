@@ -4,7 +4,7 @@
     <article class="tales mt-2">
       <article v-for="tale in tales" class="m-1 mx-auto">
         <div class="card" style="width: 18rem;">
-          <img :src="tale.chapters[0].imageUrl"
+          <img :src="tale.chapters[1].imageUrl"
                class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title">{{ tale.author }}</h5>
