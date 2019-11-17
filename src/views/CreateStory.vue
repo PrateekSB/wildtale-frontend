@@ -182,6 +182,9 @@ export default class CreateStory extends Vue {
 
 	async postStory() {
 		if (!this.imageLoading) {
+			if (this.author === '' || !this.author) {
+				this.author = 'Anonymous';
+      }
 			const chapters = [this.chapter1, this.chapter2, this.chapter3];
 			this.story = {
 				chapters,
@@ -190,12 +193,7 @@ export default class CreateStory extends Vue {
 			};
 			await postStory(this.story);
 			this.uploadSuccess = true;
-			setTimeout(
-				() => {
-					this.uploadSuccess = false;
-				},
-				20000,
-			);
+			this.$router.push('/story-list');
 		}
   }
 }
