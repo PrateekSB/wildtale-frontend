@@ -190,12 +190,7 @@ export default class CreateStory extends Vue {
 			};
 			await postStory(this.story);
 			this.uploadSuccess = true;
-			setTimeout(
-				() => {
-					this.uploadSuccess = false;
-				},
-				20000,
-			);
+			this.$router.push('/read-story');
 		}
   }
 }
