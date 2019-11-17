@@ -5,6 +5,7 @@ import Landing from '@/views/Landing.vue';
 import PostStory from '@/views/PostStory.vue';
 import CreateStory from '@/views/CreateStory.vue';
 import StoryList from '@/views/StoryList.vue';
+import Landingv2 from '@/views/Landingv2.vue';
 
 Vue.use(VueRouter);
 
@@ -12,6 +13,11 @@ const routes = [
   {
     path: '/',
     name: 'landing',
+    component: Landingv2,
+  },
+  {
+    path: '/landingv2',
+    name: 'landingv2',
     component: Landing,
   },
   {
