@@ -2,15 +2,15 @@
   <article>
     <navbar/>
     <article class="tales">
-      {{ tales }}
       <article v-for="tale in tales">
-        {{ tale.author }}
-        {{ tale.tags }}
-        <section v-for="chapter in tale.chapters">
-          {{ chapter.title }}
-          {{ chapter.story }}
-          {{ chapter.imageUrls }}
-        </section>
+        <section>Author: {{ tale.author }}</section>
+        <section>Tags: {{ tale.tags }}</section>
+        <article v-for="chapter in tale.chapters">
+          <section>Title: {{ chapter.title }}</section>
+          <section>Story: {{ chapter.story }}</section>
+          <section>Images: {{ chapter.imageUrls }}</section>
+        </article>
+        <hr/>
       </article>
     </article>
   </article>

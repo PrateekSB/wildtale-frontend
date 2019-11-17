@@ -49,7 +49,7 @@
         </router-link>
       </div>
       <div class="box">
-        <router-link to="/read-story" class="btn btn-white btn-animation-1">
+        <router-link to="/story-list" class="btn btn-white btn-animation-1">
           <font-awesome-icon :icon="['fas', 'glasses']" class="icon"/>
           Read Stories
         </router-link>
@@ -388,6 +388,9 @@ export default class Landing extends Vue {
     font-size: 1.2rem;
     margin-right: 0.5rem;
     color: $stack-wildlife-green;
+  }
+  .title {
+    font-family: AmaticRegular,serif;
   }
 }
 
