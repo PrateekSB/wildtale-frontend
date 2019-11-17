@@ -128,21 +128,21 @@ export default class CreateStory extends Vue {
 		title: '',
 		order: 1,
 		story: '',
-		imageUrls: '',
+		imageUrl: '',
 		videoUrls: '',
 	};
 	chapter2 = {
 		title: '',
 		order: 2,
 		story: '',
-		imageUrls: '',
+		imageUrl: '',
 		videoUrls: '',
 	};
 	chapter3 = {
 		title: '',
 		order: 3,
 		story: '',
-		imageUrls: '',
+		imageUrl: '',
 		videoUrls: '',
 	};
 
@@ -156,15 +156,15 @@ export default class CreateStory extends Vue {
   }
 
 	async updateImagePathChapter1(e) {
-		this.chapter1.imageUrls = (await this.getImagePath(e)).url;
+		this.chapter1.imageUrl = (await this.getImagePath(e)).url;
   }
 
 	async updateImagePathChapter2(e) {
-		this.chapter2.imageUrls = (await this.getImagePath(e)).url;
+		this.chapter2.imageUrl = (await this.getImagePath(e)).url;
 	}
 
 	async updateImagePathChapter3(e) {
-		this.chapter3.imageUrls = (await this.getImagePath(e)).url;
+		this.chapter3.imageUrl = (await this.getImagePath(e)).url;
 	}
 
 	scrollDown(el) {
