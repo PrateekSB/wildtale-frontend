@@ -389,6 +389,9 @@ export default class Landing extends Vue {
     margin-right: 0.5rem;
     color: $stack-wildlife-green;
   }
+  .title {
+    font-family: AmaticRegular,serif;
+  }
 }
 
 </style>
